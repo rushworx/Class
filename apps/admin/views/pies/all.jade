@@ -1,5 +1,8 @@
 ul#listing
-	each pie in pies
-		li(class=pie.type)=pie.name
-		
+  each pie in pies
+    li(class=pie.type)= pie.name
+      // Uncomment to implement editing
+        span.edit
+          a(href='/admin/pies/edit/') Edit
+
 != partial('form')
