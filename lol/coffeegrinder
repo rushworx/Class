@@ -1,4 +1,0 @@
-#!/bin/sh
-#compile coffe files to js and burn the evidence
-coffee -c `find ./$1 -name *.coffee`;
-rm $1/*.coffee;
