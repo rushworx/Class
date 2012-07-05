@@ -1,0 +1,8 @@
+unstable - make changes here, don't push unstable back to github!
+	   instead, push unstable-carl if you need help with your code.
+		
+stable   - DON'T SCREW WITH THIS!
+	   only once your new code is proven not to break stuff can it go in here! 
+
+mongo-auth - DON'T SCREW WITH THIS!
+	     this is a backup of working mongo authentication
