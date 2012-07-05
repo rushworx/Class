@@ -1,0 +1,34 @@
+@import _typography
+
+display-type = 'MuseoSlab', 'Clarendon', 'Helvetica Neue', Helvetica, Arial, sans-serif
+
+base = 16
+basepx = unit(base, 'px')
+baseem = unit(base, 'em')
+
+//Looks
+body
+  background-color $body-bg
+  color $body-text
+  font basepx display-type
+  text-align center
+  
+  a
+    text-decoration: none
+    border-bottom: (1/baseem) dotted $alink
+    &:link
+      color: $alink
+    &:visited, &:hover
+      color: $avisited
+    &:hover
+      color: $ahover
+  
+  h1
+    font-size (48/baseem)
+    font-weight normal
+    letter-spacing (2/48em)
+    text-transform uppercase
+    
+  p
+    span.title
+      font-weight bold

@@ -1,0 +1,58 @@
+@import _colors
+@import _typography
+@import _layout
+@import _looks
+
+//layout
+body  
+  p
+    clear both
+  form
+    margin (20/baseem) auto (72/baseem) auto
+    width 55%
+    text-align left
+    label
+      margin (16/baseem)
+      display: block
+    input, select
+      width 100%
+      margin-top (5/baseem)
+      display: block
+    input[type='submit']
+      width auto
+      float right
+      padding (5/36em) (24/36em)
+
+//looks
+body
+  h1
+    text-shadow 0 1px 0 $login-header-border
+    
+  #header
+    background-color $login-header-bg
+    border-top 1px solid lighten($login-header-bg, 40%)
+    border-bottom 3px solid $login-header-border
+    color $header-text
+    
+  form
+    font-size (36/baseem)
+    text-shadow 0 1px 0 darken($white, 10%)
+    input, select, option
+      background-color $white
+      border 1px solid $admin-header-border
+      border-radius (5/36em)
+      color $admin-form-text
+      font (36/36em) display-type
+      
+    input[type='file']
+      background-color transparent 
+      border none
+      font-size (36/36em)
+      padding-top 0.5em
+      
+    input[type='submit']
+      background-color $pie-blue
+      border-color lighten($black, 25%)
+      border-radius (36/36em)
+      color $white
+      text-shadow 0 1px 0 $grey-dark

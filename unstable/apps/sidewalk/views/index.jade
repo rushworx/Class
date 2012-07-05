@@ -1,0 +1,6 @@
+ul
+  each pie in pies
+    li(class=[cssClassForPieAge(pie), pie.type])
+      = pie.name
+      span.status
+        = wordsForPieAge(pie)

@@ -1,0 +1,42 @@
+@import _colors
+
+background-gradient($from, $to)
+  -webkit-gradient(linear, left top, left bottom, from($from), to($to))
+  
+not-ready()
+  background-color $grey-dim
+  border-top 1px solid lighten($grey-dim, 40%)
+  border-bottom 1px solid darken($grey-dim, 40%)
+  color $li-making-text
+  text-shadow 0px 1px 0px $li-making-shadow
+  
+almost-ready()
+  background-color $grey-light
+  border-top 1px solid lighten($grey-light, 40%)
+  border-bottom 1px solid darken($grey-light, 40%)
+  color $li-making-text
+  text-shadow 0px 1px 0px lighten($li-making-shadow, 50%)
+  
+pipin-hot()
+  background-color $li-pipinhot-bg
+  border-top 1px solid lighten($li-pipinhot-bg, 40%)
+  border-bottom 1px solid $li-pipinhot-border
+  color $li-pipinhot-text
+  text-shadow 0 1px 0 $li-pipinhot-shadow
+  
+hot()
+  background-color $li-hot-bg
+  border-top 1px solid lighten($li-hot-bg, 40%)
+  border-bottom 1px solid $li-hot-border
+  color $li-hot-text
+  text-shadow 0 1px 0 $li-hot-shadow
+  
+warm()
+  background-color $li-warm-bg
+  border-top 1px solid lighten($li-warm-bg, 40%)
+  border-bottom 1px solid $li-warm-border
+  color $li-warm-text
+  text-shadow 0 1px 0 $li-warm-shadow
+  
+inactive()
+  not-ready()

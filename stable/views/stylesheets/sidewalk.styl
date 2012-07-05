@@ -1,0 +1,83 @@
+@import _colors
+@import _typography
+@import _layout
+@import _looks
+@import mixins-stage
+
+//layout
+body 
+  ul
+    margin 0
+    padding 0
+  
+  li
+    margin 0
+    padding (25/36em)
+    padding-left (120/36em)
+    text-align left
+
+//looks
+body
+  h1
+    text-shadow 0 1px 0 $header-border
+  
+  #header
+    background-color $header-bg
+    border-top 1px solid lighten($header-bg, 40%)
+    border-bottom 3px solid $header-border
+    color $header-text
+    
+  ul
+    li
+      font-size (36/baseem)
+      font-weight normal
+      letter-spacing (1/36em)
+      text-overflow ellipsis
+      overflow hidden
+      white-space nowrap
+      &.not-ready
+        not-ready()
+        span.status
+          color $li-making-status
+      &.almost-ready
+        almost-ready()
+        span.status
+          color $li-making-status
+      &.pipin-hot
+        pipin-hot()
+        span.status
+          color $li-pipinhot-status
+      &.hot
+        hot()
+        span.status
+          color $li-hot-status
+      &.warm
+        warm()
+        span.status
+          color $li-warm-status
+    
+  span.status
+    font-size (26/36em)
+    text-transform none
+  
+  // photographs of pies or sweet & savory icons are here  
+  ul
+    li
+      background-position (10/36em) (5/36em)
+      background-repeat no-repeat
+      background-size (80/36em) (80/36em)
+      &.tarragonchicken
+        background-image url(../images/pie-tarragonchicken.jpg)
+      &.cherry
+        background-image url(../images/pie-apple.jpg)
+      &.raspberry
+        background-image url(../images/pie-apple.jpg)
+      &.chickenpot
+        background-image url(../images/pie-tarragonchicken.jpg)
+      &.strawberry
+        background-image url(../images/pie-pecan.jpg)
+      &.sweet
+        background-image url(../images/icon-sweet.png)
+      &.savory
+        background-image url(../images/icon-savory.png)
+    
