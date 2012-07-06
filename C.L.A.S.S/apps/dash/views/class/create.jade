@@ -1,0 +1,95 @@
+script(language='javascript', type='text/javascript')
+      function hideDiv(pass) {
+      var divs = document.getElementsByTagName('div');
+      for(i=0;i<divs.length;i++){
+      if(divs[i].id.match(pass)){//if they are 'see' divs
+      if (document.getElementById) // DOM3 = IE5, NS6
+      divs[i].style.visibility="hidden";// show/hide
+      else
+      if (document.layers) // Netscape 4
+      document.layers[divs[i]].display = 'hidden';
+      else // IE 4
+      document.all.hideShow.divs[i].visibility = 'hidden';
+      }
+      }
+      }
+      function showDiv(pass) {
+      var divs = document.getElementsByTagName('div');
+      for(i=0;i<divs.length;i++){
+      if(divs[i].id.match(pass)){
+      if (document.getElementById)
+      divs[i].style.visibility="visible";
+      else
+      if (document.layers) // Netscape 4
+      document.layers[divs[i]].display = 'visible';
+      else // IE 4
+      document.all.hideShow.divs[i].visibility = 'visible';
+      }
+      }
+      }
+body
+  a(href="/dash/class")
+    | Back to DASHBOARD
+
+
+
+  form(action='/', method='post')
+    table.t2(align='center',border='0')
+      tr
+        td(colspan='2')
+          | Instructions: [Instructions for assignment or posting of any kind]
+        tr
+          td
+            | Title
+          td
+            textarea(row='1', cols='70', name='problemtitle') Please enter problem title 
+          tr 
+            td(align='center')
+              | Post
+            td
+              textarea(rows='25', cols='70', name='problem') Type question/post here
+         tr
+           td(colspan='2')
+             input(type='reset', value='RESET')
+             input(type='submit', value='SUBMIT')
+             
+   a(href='javascript:showDiv(\'257\')') Solve Problem
+ 
+     
+  #257a
+    a(href='javascript:hideDiv(\'257\')') Hide Solution
+    form(name='grade_prob', action='', method='post')
+      table.t2(align='center', border='0')
+        tr
+          td
+            textarea(rows='15', cols='70', name='solve_problem') 
+        tr
+             td(colspan='2')
+               input(type='reset', value='RESET')
+               input(type='submit', value='SUBMIT')
+   
+           
+  a(href='javascript:showDiv(\'256\')') Grade Problem
+ 
+     
+  #256a
+    a(href='javascript:hideDiv(\'256\')') Hide Grading
+    form(name='grade_prob', action='', method='post')
+      table.t2(align='center', border='0')
+        tr
+          td
+            | Please Grade the solutions above and provide justification
+        tr
+          td
+            textarea(rows='1', cols='3', name='grade')
+            |/100
+        tr
+          td
+            textarea(rows='15', cols='70', name='grade_problem') 
+        tr
+             td(colspan='2')
+               input(type='reset', value='RESET')
+               input(type='submit', value='SUBMIT')
+   
+
+    

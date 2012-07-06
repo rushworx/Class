@@ -1,0 +1,15 @@
+!!!
+html
+  head
+    title= "C.L.A.S.S >>" + title
+    link(rel='stylesheet', href='/stylesheets/#{stylesheet}.css')
+  #header
+    h1= "C.L.A.S.S >>" + title
+    
+  - var flashTypes = ['info', 'error']
+    each flashType in flashTypes
+      if flash[flashType]
+        p.flash(class=flashType)
+          = flash[flashType]
+  
+  body!= body
