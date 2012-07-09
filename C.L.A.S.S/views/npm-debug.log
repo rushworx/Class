@@ -1,0 +1,23 @@
+info it worked if it ends with ok
+verbose cli [ 'node', '/usr/local/bin/npm', 'start' ]
+info using npm@1.1.4
+info using node@v0.6.12
+verbose config file /home/mharrison/.npmrc
+verbose config file /usr/local/etc/npmrc
+verbose config file /usr/local/lib/node_modules/npm/npmrc
+ERR! Error: ENOENT, no such file or directory '/mnt/home/mharrison/part1/views/package.json'
+ERR! You may report this log at:
+ERR!     <http://github.com/isaacs/npm/issues>
+ERR! or email it to:
+ERR!     <npm-@googlegroups.com>
+ERR! 
+ERR! System Linux 2.6.31-302-ec2
+ERR! command "node" "/usr/local/bin/npm" "start"
+ERR! cwd /mnt/home/mharrison/part1/views
+ERR! node -v v0.6.12
+ERR! npm -v 1.1.4
+ERR! path /mnt/home/mharrison/part1/views/package.json
+ERR! code ENOENT
+ERR! message ENOENT, no such file or directory '/mnt/home/mharrison/part1/views/package.json'
+ERR! errno {}
+verbose exit [ 1, true ]
