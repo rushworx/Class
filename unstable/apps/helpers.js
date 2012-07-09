@@ -8,7 +8,7 @@
         return req.flash();
       },
       userGreeting: function(req, res) {
-        return "User | role: " + req.session.currentUser + " | " + req.session.currentUserRole;
+        return "Howdy, " + req.session.currentUser + "!";
       },
       currentPath: function(req, res) {
         return req.path;

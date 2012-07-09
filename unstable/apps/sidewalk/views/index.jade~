@@ -1,0 +1,7 @@
+<font size=16><a href="/login">login</a></font><br>
+ul
+  each pie in pies
+    li(class=[cssClassForPieAge(pie), pie.type])
+      = pie.name
+      span.status
+        = wordsForPieAge(pie)

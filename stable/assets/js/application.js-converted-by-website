@@ -1,0 +1,31 @@
+jQuery(function() {
+  var refresh, socket;
+  if (window.location.pathname === '/') {
+    refresh = function() {
+      return window.location = '/';
+    };
+    socket = io.connect("/");
+    socket.on("pie:changed", function(pie) {
+      return refresh();
+    });
+    setTimeout(refresh, 1000 * 60);
+    window.socket = socket;
+  }
+  return $('ul#listing li div.status div').click(function() {
+    var classNames, dataId, state, statesArray;
+    dataId = $(this).closest('li').attr('data-id');
+    classNames = $(this).attr('class').split(' ');
+    statesArray = _.reject(classNames, function(className) {
+      return className === 'on';
+    });
+    state = statesArray[0];
+    $.ajax("/admin/pies/" + dataId, {
+      type: 'PUT',
+      data: {
+        state: state
+      }
+    });
+    $(this).closest('li').find('div.status div').removeClass('on');
+    return $(this).addClass('on');
+  });
+});

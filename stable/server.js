@@ -1,57 +1,63 @@
 require('coffee-script');
 
-
 /**
  * Module dependencies.
  */
 
 var express = require('express'),
-		RedisStore = require('connect-redis')(express);
+  stylus = require('stylus'),
+  RedisStore = require('connect-redis')(express);
 
-
-require('express-namespace');
+require('express-namespace')
 
 var app = module.exports = express.createServer();
 
-// Configuration
-require('./apps/socket-io')(app);
+require('./apps/socket-io')(app)
 
-app.configure(function(){
+// Configuration
+app.configure(function () {
+  app.use(stylus.middleware({
+    src: __dirname + "/views",
+    // It will add /stylesheets to this path.
+    dest: __dirname + "/public"
+  }));
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
-	app.set('port', 3019);
-	app.use(express.bodyParser());
-	app.use(express.methodOverride());
-	app.use(express.cookieParser());
-	app.use(express.session({
-		secret: "KioxIqpvdyfMXOHjVkUQmGLwEAtB0SZ9cTuNgaWFJYsbzerCDn",
-		store: new RedisStore
-	}));
-	app.use(require('connect-assets')());
+  app.set('port', 3000);
+  app.use(express.bodyParser());
+  app.use(express.methodOverride());
+  app.use(express.cookieParser());
+  app.use(express.session({
+    secret: "KioxIqpvdyfMXOHjVkUQmGLwEAtB0SZ9cTuNgaWFJYsbzerCDn",
+    store: new RedisStore
+  }));
+  app.use(require('connect-assets')());
   app.use(app.router);
   app.use(express.static(__dirname + '/public'));
 });
 
-app.configure('development', function(){
-  app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
+app.configure('development', function () {
+  app.use(express.errorHandler({
+    dumpExceptions: true,
+    showStack: true
+  }));
 });
 
-app.configure('test', function(){
-  app.set('port', 3018);
+app.configure('test', function () {
+  app.set('port', 3001);
 });
 
-app.configure('production', function(){
+app.configure('production', function () {
   app.use(express.errorHandler());
 });
 
-// Helpers
-
+// Global helpers
 require('./apps/helpers')(app);
 
 // Routes
+require('./apps/sidewalk/routes')(app);
+require('./apps/authentication/routes')(app);
+require('./apps/admin/routes')(app);
 
-require('./apps/authentication/authentication_routes')(app)
-require('./apps/admin/admin_routes')(app)
-require('./apps/sidewalk/sidewalk_routes')(app)
 app.listen(app.settings.port);
-console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
+console.log("Express server listening on port %d in %s mode", app.settings.port, app.settings.env);
