@@ -1,0 +1,8 @@
+if 'admin' == stylesheet
+  #toolbar
+    ul
+      span= userGreeting
+      li(class=cssClassForCurrentURL(currentPath, '/admin/menu/stage'))
+        a(href='/admin/menu/stage') Status
+      li(class=cssClassForCurrentURL(currentPath, '/admin/pies'))
+        a(href='/admin/pies') All pies

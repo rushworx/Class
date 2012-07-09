@@ -1,0 +1,11 @@
+ul#listing
+  each pie in pies
+    li(class=pie.type, data-id=pie.id)
+      div.status
+        div(class=cssClassForState('inactive', pie.state))
+          p gone
+        div(class=cssClassForState('making', pie.state))
+          p oven
+        div(class=cssClassForState('ready', pie.state))
+          p ready
+      = pie.name
