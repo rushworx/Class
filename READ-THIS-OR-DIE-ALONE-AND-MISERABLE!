@@ -1,8 +1,7 @@
+C.L.A.S.S - ryan's code, it has diverged a bit from mine, I'd like to merge them real soon now...
+
 unstable - make changes here, don't push unstable back to github!
-	   instead, push unstable-carl if you need help with your code.
+	   instead, push unstable-carl or unstable-meenal etc if you need help with your code.
 		
 stable   - DON'T SCREW WITH THIS!
 	   only once your new code is proven not to break stuff can it go in here! 
-
-mongo-auth - DON'T SCREW WITH THIS!
-	     this is a backup of working mongo authentication
