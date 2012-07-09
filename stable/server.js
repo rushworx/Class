@@ -50,8 +50,8 @@ require('./apps/helpers')(app);
 
 // Routes
 
-require('./apps/authentication/authentication_routes')(app)
-require('./apps/admin/admin_routes')(app)
-require('./apps/sidewalk/sidewalk_routes')(app)
+require('./apps/authentication/routes')(app)
+require('./apps/admin/routes')(app)
+require('./apps/sidewalk/routes')(app)
 app.listen(app.settings.port);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
