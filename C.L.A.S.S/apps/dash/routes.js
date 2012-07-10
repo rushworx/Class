@@ -5,14 +5,14 @@
   var connection = mongoose.createConnection('mongodb://localhost/newpla2');    //creates the mongo connection   
 
   //initializzes an empty schema object
-  var Schema = mongoose.Schema
-  , ObjectId = Schema.ObjectId;
+  var Schema = mongoose.Schema,
+  ObjectId = Schema.ObjectId;
   
   //populates the schema object with properties  
   
   var Problem = new Schema({
-  title : String,
-  body: String
+  problemtitle : String,
+  problem: String
   });
 
   var Assignment = new Schema({
@@ -35,9 +35,13 @@
     app.post('/',function(req,res) {
       var assignment = new AssignmentModel(); //this creates a new empty assignment model
       assignment.instructions = 'Here are the instructions for the problem by Bieber4';
-      assignment.problem.push({title: req.body.problemtitle, body:req.body.problem});
+      assignment.problem.push({title: req.body.problemtitle, body: req.body.problem});
       //this saves the new assignment
-      assignment.save();
+                assignment.save(function() {
+        req.flash('info',"Your " + req.body.problemtitle + " question was saved");
+       res.redirect('/dash/class');
+       return;
+      });
       
     });
     
@@ -56,19 +60,20 @@
           assignment= new AssignmentModel();
           return res.render("" + __dirname + "/views/class/dash.jade", {
             title: "Dashboard",
-            stylesheet: 'admin',
+            stylesheet: 'admin'
             });
           });
         });
       
-        return app.post('/', function(req, res) {
-           
-          return;
+      app.post('/', function(req, res) {
+         return;  
           var attributes;
           attributes = {
             problemtitle: req.body.problemtitle,
-            problem: req.body.problem,
+            problem: req.body.problem
           };
+
+          
           
         });
       });

@@ -9,7 +9,8 @@
     ObjectId = Schema.ObjectId;
     User = new Schema({
       login: String,
-      password: String
+      password: String,
+      role      : String  // user's role in a class
     });
     UserModel = connection.model("users", User);
     user = new UserModel();
@@ -18,9 +19,11 @@
     }, function(err, doc) {
       return console.log(doc);
     });
-    makeNewUser = function(login, pass) {
+    makeNewUser = function(login, pass, role) {
       user.login = login;
       return user.password = pass;
+     user.role = role;
+     user.save();
     };
     makeNewUser("dude", "dude$1234");
     routes = function(app) {
@@ -40,7 +43,9 @@
           } else {
             if (doc.password === req.body.password) {
               req.session.currentUser = req.body.user;
-              req.flash('info', "You are now logged in as " + req.session.currentUser + ".");
+              req.session.currentUserRole = doc.role;   // added user role -cm
+
+              req.flash('info', "You are now logged in as " + req.session.currentUser + "role: " + req.session.currentUserRole);
               res.redirect('/dash/class');
             } else {
               req.flash('error', 'The password was incorrect. Please login again.');

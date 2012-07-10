@@ -1,8 +1,34 @@
-info it worked if it ends with ok
-verbose cli [ 'node', '/usr/local/bin/npm', 'start' ]
-info using npm@1.1.4
-info using node@v0.6.12
-verbose config file /home/mharrison/.npmrc
-verbose config file /usr/local/etc/npmrc
-verbose config file /usr/local/lib/node_modules/npm/npmrc
-verbose caching /mnt/home/mharrison/C.L.A.S.S/package.json
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'start' ]
+2 info using npm@1.1.36
+3 info using node@v0.6.12
+4 verbose config file /home/mharrison/.npmrc
+5 verbose config file /usr/local/etc/npmrc
+6 verbose config file /usr/local/lib/node_modules/npm/npmrc
+7 verbose read json /mnt/home/mharrison/C.L.A.S.S/package.json
+8 verbose run-script [ 'prestart', 'start', 'poststart' ]
+9 info prestart application-name@0.0.1
+10 info start application-name@0.0.1
+11 verbose unsafe-perm in lifecycle true
+12 silly exec sh "-c" "node server.js"
+13 silly sh,-c,node server.js,/mnt/home/mharrison/C.L.A.S.S spawning
+14 info application-name@0.0.1 Failed to exec start script
+15 error application-name@0.0.1 start: `node server.js`
+15 error `sh "-c" "node server.js"` failed with 1
+16 error Failed at the application-name@0.0.1 start script.
+16 error This is most likely a problem with the application-name package,
+16 error not with npm itself.
+16 error Tell the author that this fails on your system:
+16 error     node server.js
+16 error You can get their info via:
+16 error     npm owner ls application-name
+16 error There is likely additional logging output above.
+17 error System Linux 2.6.31-302-ec2
+18 error command "node" "/usr/local/bin/npm" "start"
+19 error cwd /mnt/home/mharrison/C.L.A.S.S
+20 error node -v v0.6.12
+21 error npm -v 1.1.36
+22 error code ELIFECYCLE
+23 error message application-name@0.0.1 start: `node server.js`
+23 error message `sh "-c" "node server.js"` failed with 1
+24 verbose exit [ 1, true ]

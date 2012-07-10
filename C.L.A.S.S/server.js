@@ -17,7 +17,7 @@ var app = module.exports = express.createServer();
 app.configure(function(){
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
-  app.set('port', 3004);
+  app.set('port', 3023);
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(express.cookieParser());
